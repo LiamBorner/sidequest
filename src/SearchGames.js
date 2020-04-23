@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Game from './Game';
 import './Search.css';
 import axios from 'axios';
+import GameDetail from './GameDetail';
+import { Link } from 'react-router-dom';
+
 
 // TODO
 // Grab text from button input
@@ -14,23 +17,19 @@ import axios from 'axios';
 
 class SearchGames extends Component {
 
-    constructor( props ) {
-        super( props );
-
-        this.state = {
+        state = {
             query: '',
             results: {},
             loading: false,
             message: ''
         };
-        this.cancel = '';
-    }
+        // this.state.cancel = '';
+    
 
 
     fetchSearchResults = (query) => {
 
         const searchUrl = `https://api.rawg.io/api/games?&page_size=20&search=${query}`;
-        console.log("Search url" + searchUrl);
 
         // const searchUrl = `https://pixabay.com/api/?key=12413278-79b713c7e196c7a3defb5330e&q=${query}${pageNumber}`;
         // `page_size=${updatedPageNo}`        
@@ -55,7 +54,6 @@ class SearchGames extends Component {
                     })
             })
             .catch((error) => {
-                console.log("this clearly isn't working");
                 if (axios.isCancel(error) || error) {
                     this.setState({
                         loading: false,
@@ -84,13 +82,14 @@ class SearchGames extends Component {
             // console.log(results);
 
             if ( Object.keys( results ).length && results.length ) {
-                console.log("Results " + {results});
                 return (
                     <div>
                         <ul>
                         {results.map( result => {
                             return (
-                                <li key={result.id} result={result.name}>{result.name}</li> 
+                                <Link to={`/${result.id}`}>
+                                <li key={result.id} result={result.name}>{result.name}, {result.id}</li> 
+                                </Link>
                             )
                         })}
                         </ul> 
@@ -125,41 +124,3 @@ class SearchGames extends Component {
 
 export default SearchGames;
 
-/* <label>Search a game</label>
-      <input type="text" id="searchQuery" placeholder="Search a game"></input>/>
-      <button >Submit</button> */
-
-
-// async componentDidMount() {
-//     try {
-//         const SEARCH_QUERY = '';
-//         // const SEARCH_QUERY = searchQuery;
-//         const res = await fetch(`https://api.rawg.io/api/games?page_size=20&search=${SEARCH_QUERY}`);
-//         const games = await res.json();
-//         console.log(res);
-//         this.setState({
-//             games: games.results
-//         })
-//     } catch(e) {
-//         console.error("The API isn't working")
-//     }
-// }
-// render() {
-//  return (
-     
-//      <ul>   
-//         {this.state.games.map(game => 
-//         <li key={game.id} game={game}>
-//             {game.name}, {game.id}
-
-//             </li> )}
-//     </ul>
-// // if required, you can remove add Game as the styled component
-// // to the li element and convert back into a card style
-
-//  )
-
-// }
-// }
-
-// export default SearchGames;

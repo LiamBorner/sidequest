@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Game from './Game';
+import GameDetail from './GameDetail';
+
 import styled from 'styled-components';
 
 class GamesList extends Component {
@@ -28,7 +30,6 @@ render() {
 }
 }
 
-console.log('hi');
 
 export default GamesList;
 
