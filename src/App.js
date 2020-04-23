@@ -14,12 +14,10 @@ function App() {
       <Link to="/">Sidequest II</Link>
     </header>
       
-      <GamesList />
+      {/* <GamesList /> */}
 
-    <h1>Search list</h1>
-    <SearchGames />
-{/* API returns data, but doesn't render onto page (yet) */}
 
+<SearchGames/>
 
     </Router>
   );

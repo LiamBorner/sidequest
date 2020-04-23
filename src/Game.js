@@ -36,8 +36,6 @@ const GameCard = styled.div`
     box-shadow: 0 0 20px black;
     overflow: hidden;
 
-
-
     img {
         
         max-height: 40vh;
@@ -46,7 +44,6 @@ const GameCard = styled.div`
         background-size: cover;
         height: 100%;
         overflow: hidden;
-
     }
 
     h1 {
@@ -58,7 +55,6 @@ const GameCard = styled.div`
         color: white;
         font-size: 1.5rem; 
         top: -108px;
-
     }
 
     p {
@@ -70,10 +66,7 @@ const GameCard = styled.div`
         color: white;
         font-size: 1.5rem; 
         top: -100px;
- 
     }
-
-    
 `
 
 

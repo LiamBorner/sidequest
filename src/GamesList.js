@@ -8,8 +8,6 @@ class GamesList extends Component {
         games: []
     }
 
-
-
 async componentDidMount() {
     try {
         const res = await fetch('https://api.rawg.io/api/games?dates=2019-10-10,2020-10-10&ordering=-added');
@@ -34,7 +32,7 @@ console.log('hi');
 
 export default GamesList;
 
-const GameGrid = styled.div `
+const GameGrid = styled.div`
     display: grid;
     padding: 1rem;
     grid-template-columns: repeat(3, 1fr);
