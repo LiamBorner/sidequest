@@ -2,21 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Overdrive from 'react-overdrive';
+import './Stylesheets/App.css';
 
 
 
 const Game = ({ game }) => (
     <Link to={`/${game.id}`}>
-        <GameCard>
-        <div id={game.id}>
-            <img src= {game.background_image}></img>
-        <div> 
-            <h1>{game.name}</h1>
-            <p>Rating {game.rating}</p> 
-        </div>    
-        </div>
+        <GameCard backdrop={game.background_image}>
+            {/* <img src= {game.background_image}></img> */}
+            <InnerGameCard></InnerGameCard>    
+                <h1>{game.name}</h1>
+                <p>Rating {game.rating}</p> 
         </GameCard>
-        
     </Link>
     );
 
@@ -29,22 +27,17 @@ Game.propTypes = {
     }).isRequired,
 };
 
-const GameCard = styled.div`
+export const GameCard = styled.section`
     width: 100%;
     height: 40vh;
     text-decoration: none;
     box-shadow: 0 0 20px black;
     overflow: hidden;
+    background: url(${props => props.backdrop}) no-repeat;
+    background-size: cover;
+    max-width: 100%;
 
-    img {
-        
-        max-height: 40vh;
-        background-position: center center;
-        max-width: 100%;
-        background-size: cover;
-        height: 100%;
-        overflow: hidden;
-    }
+    
 
     h1 {
         position: relative;
@@ -54,7 +47,7 @@ const GameCard = styled.div`
         z-index: 2;
         color: white;
         font-size: 1.5rem; 
-        top: -108px;
+        margin-top: -65px;
     }
 
     p {
@@ -62,11 +55,22 @@ const GameCard = styled.div`
         margin: auto;
         width: 100%;
         padding-left: 10px;
+        padding-top: 5px; 
         z-index: 2;
         color: white;
-        font-size: 1.5rem; 
-        top: -100px;
-    }
+        font-size: 1rem; 
+    }   
+`
+
+export const InnerGameCard = styled.div`
+    background-color: black;
+    opacity: 0.8;
+    z-index: 1;
+    position: relative;
+    height: 75px;
+    margin-top: 180px;
+    
+   
 `
 
 

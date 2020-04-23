@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import Game from './Game';
-import GameDetail from './GameDetail';
 
 import styled from 'styled-components';
+
+
+//Todo - give user a way to amend the filter dates
+const DATE_FROM = "2019-10-10"
+const DATE_TO = "2020-10-10"
+
 
 class GamesList extends Component {
 
@@ -10,9 +15,10 @@ class GamesList extends Component {
         games: []
     }
 
+
 async componentDidMount() {
     try {
-        const res = await fetch('https://api.rawg.io/api/games?dates=2019-10-10,2020-10-10&ordering=-added');
+        const res = await fetch(`https://api.rawg.io/api/games?dates=${DATE_FROM},${DATE_TO}&ordering=-rating&page_size=21`);
         const games = await res.json();
         console.log(games);
         this.setState({

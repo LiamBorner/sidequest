@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import './App.css';
+import './Stylesheets/App.css';
 import GamesList from './GamesList';
 import SearchGames from './SearchGames';
 import GameDetail from './GameDetail';
+import Toggle from './Toggle';
 
 
 
@@ -12,9 +13,10 @@ function App() {
     <Router>
 
     <header className="App-header">
-      <Link to="/">Sidequest II</Link>
+      <Link to="/" className="app-name">Sidequest</Link>
+    <Link to="/search" className="search-box">Search</Link>
     </header>
-    <Link to="/search">Search</Link>
+    {/* <Toggle /> */}
 
     <Switch>
       <Route exact path="/" component={GamesList} />

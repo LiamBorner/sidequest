@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
-import Game from './Game';
-import './Search.css';
+import './Stylesheets/Search.css';
 import axios from 'axios';
-import GameDetail from './GameDetail';
 import { Link } from 'react-router-dom';
-
-
-// TODO
-// Grab text from button input
-// pass to search_query
-// on submit, run the async function
-
-// const searchQuery = "spyro"
-// document.getElementById("searchQuery").value;
 
 
 class SearchGames extends Component {
@@ -88,7 +77,7 @@ class SearchGames extends Component {
                         {results.map( result => {
                             return (
                                 <Link to={`/${result.id}`}>
-                                <li key={result.id} result={result.name}>{result.name}, {result.id}</li> 
+                                <li className="list-items" key={result.id} result={result.name}>{result.name}</li> 
                                 </Link>
                             )
                         })}
