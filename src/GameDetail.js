@@ -60,6 +60,8 @@ class GameDetail extends Component{
 
 
 const GameWrapper = styled.div`
+display: grid;
+
 position: relative;
 padding-top: 70vh;
 background: url(${props => props.backdrop}) no-repeat;

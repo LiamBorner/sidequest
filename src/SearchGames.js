@@ -33,7 +33,6 @@ class SearchGames extends Component {
                 cancelToken: this.cancel.token,
             })
             .then( res => {
-                    const total = res.data.total;
                     const resultNotFoundMsg = !res.data.results.length ? 'There are no more search results. Try a new search' : '';
 
                     this.setState( {
